@@ -46,6 +46,9 @@ var settings = module.exports = {
     // Enable module reinstalls on start-up; this ensures modules installed
     // post-deploy are restored after a restage
     autoInstallModules: true,
+    
+    //CORS enable
+    httpNodeCors: { origin: "*", methods: ['GET','PUT','POST','DELETE'] },
 
     // Move the admin UI
     httpAdminRoot: '/red',
