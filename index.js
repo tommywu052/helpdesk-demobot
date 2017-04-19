@@ -62,12 +62,17 @@ if (!settings.adminAuth) {
             var bodyParser = require('body-parser');
             var app = express();
             
-			var cors = require("cors");
-            app.use(cors());
+			//var cors = require("cors");
+            //app.use(cors());
             
             app.use(bodyParser.json());
             app.get("/", function(req,res) {
-                res.sendFile(path.join(__dirname,"public","first-run.html"));
+            	 	res.setHeader('Access-Control-Allow-Origin', '*');
+				    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+				    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,contenttype'); // If needed
+				    res.setHeader('Access-Control-Allow-Credentials', true); // If needed
+
+                	res.sendFile(path.join(__dirname,"public","first-run.html"));
             });
             app.post("/setup", function(req,res) {
                 if (req.body.adminAuth && req.body.adminAuth.password) {
