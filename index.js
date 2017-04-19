@@ -61,6 +61,10 @@ if (!settings.adminAuth) {
             var express = require('express');
             var bodyParser = require('body-parser');
             var app = express();
+            
+			var cors = require("cors");
+            app.use(cors());
+            
             app.use(bodyParser.json());
             app.get("/", function(req,res) {
                 res.sendFile(path.join(__dirname,"public","first-run.html"));
