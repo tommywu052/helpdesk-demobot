@@ -48,7 +48,10 @@ var settings = module.exports = {
     autoInstallModules: true,
     
     //CORS enable
-    httpNodeCors: { origin: "*", methods: ['GET','PUT','POST','DELETE'] },
+    httpNodeCors: {
+	 origin: "*",
+	 methods: "GET,PUT,POST,DELETE"
+	},
 
     // Move the admin UI
     httpAdminRoot: '/red',
